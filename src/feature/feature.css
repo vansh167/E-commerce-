@@ -1,0 +1,76 @@
+/* Feature section container */
+#feature {
+  display: flex;
+  flex-wrap: wrap;          /* allow wrapping on smaller screens */
+  justify-content: center;
+  gap: 10px;                /* space between boxes */
+  padding: 40px 20px;
+  background: #fff;
+}
+
+/* Feature box */
+#feature .fe-box {
+  width: 180px;
+  text-align: center;
+  padding: 25px 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border: 1px solid #cce7de;
+  margin: 10px;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  flex: 1 1 150px;   /* flexible width for responsiveness */
+  max-width: 200px;
+}
+
+#feature .fe-box img {
+  width: 100%;
+  max-width: 120px;
+  margin-bottom: 10px;
+}
+
+#feature .fe-box h6 {
+  display: inline-block;
+  padding: 9px 8px 6px 8px;
+  color: #088178;
+  line-height: 1;
+  border-radius: 4px;
+  background-color: #f0deeada;
+  font-size: 14px;
+}
+
+/* Hover effect */
+#feature .fe-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+}
+
+/* 📱 Responsive Breakpoints */
+@media (max-width: 1024px) {
+  #feature {
+    gap: 15px;
+  }
+  #feature .fe-box {
+    width: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  #feature {
+    justify-content: space-around;
+  }
+  #feature .fe-box {
+    width: 45%;    /* two per row */
+    max-width: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #feature {
+    flex-direction: column;
+    align-items: center;
+  }
+  #feature .fe-box {
+    width: 80%;   /* full width on small screens */
+  }
+}

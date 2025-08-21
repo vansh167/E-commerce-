@@ -1,23 +1,111 @@
 .relatedproducts {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  height: 90vh;
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 20px;
+  text-align: center;
 }
+
 .relatedproducts h1 {
-  color: #171717;
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2c2c2c;
+  margin-bottom: 10px;
 }
-.relatedproducts hr{
-  width: 200px;
-  height: 6px;
-  border-radius: 10px;
-  background: #252525;
+
+.relatedproducts hr {
+  width: 80px;
+  height: 3px;
+  margin: 0 auto 30px;
+  background: #ff4141;
+  border: none;
+  border-radius: 2px;
 }
+
 .relatedproducts-item {
-  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Individual Item (card look) */
+.relatedproducts-item .item {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.relatedproducts-item .item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.relatedproducts-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.relatedproducts-item h2 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 8px 0;
+}
+
+.relatedproducts-item .prices {
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.relatedproducts-item .old_price {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.relatedproducts-item .new_price {
+  color: #ff4141;
+  font-weight: 700;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .relatedproducts h1 {
+    font-size: 22px;
+  }
+
+  .relatedproducts hr {
+    margin-bottom: 20px;
+  }
+
+  .relatedproducts-item {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .relatedproducts {
+    padding: 10px;
+  }
+
+  .relatedproducts h1 {
+    font-size: 20px;
+  }
+
+  .relatedproducts-item {
+    grid-template-columns: 1fr 1fr; 
+    gap: 12px;
+  }
+
+  .relatedproducts-item .item {
+    padding: 10px;
+  }
 }

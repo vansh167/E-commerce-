@@ -11,6 +11,7 @@ const getDefaultCart = () => {
   return cart;
 }
 
+
 const ShopContexProvider = (props) => {
 
   const [cartItems, setCartItems] = useState(getDefaultCart());
@@ -24,7 +25,7 @@ const ShopContexProvider = (props) => {
   }
 
   const getTotalCartAmount =  () => {
-    debugger
+    
     let totalAmount = 0;
     for( const item in cartItems) {
       if(cartItems[item] > 0) {
@@ -33,16 +34,21 @@ const ShopContexProvider = (props) => {
       }
       console.log(totalAmount);
       
-      return totalAmount;
+    }
+    return totalAmount;
+  }
+const getTotalCartItem = () => {
+  let totalItem = 0;
+  for (const item in cartItems)
+  {
+    if(cartItems[item]>0)
+    {
+      totalItem+= cartItems[item];
     }
   }
-
-  const contextValue = { all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount };
-  // useEffect(() => {
-  //   console.log(cartItems);
-
-  // }, [cartItems])
-
+  return totalItem;
+}
+  const contextValue = { all_product, cartItems, addToCart, removeFromCart, getTotalCartAmount,getTotalCartItem  };
   return (
     <>
       <ShopContext value={contextValue}>

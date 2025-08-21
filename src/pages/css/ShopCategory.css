@@ -44,3 +44,25 @@
   font-size: 18px;
   font-weight: 500;
 }
+/* Zoom effect on product images */
+.shopcategory-products img {
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.shopcategory-products img:hover {
+  transform: scale(1.2); /* zoom 20% */
+}
+.item-image-container {
+  overflow: hidden;
+  border-radius: 10px; /* optional for clean look */
+}
+
+.item-image-container img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.item-image-container img:hover {
+  transform: scale(1.2);
+}

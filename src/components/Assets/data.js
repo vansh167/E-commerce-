@@ -2,6 +2,11 @@ import p1_img from './product_1.png'
 import p2_img from './product_2.png'
 import p3_img from './product_3.png'
 import p4_img from './product_4.png'
+import p40_img from "./product_40.jpg";
+import p41_img from "./product_41.jpg";
+import p42_img from "./product_42.jpg";
+import p43_img from "./product_43.jpg";
+
 
 let data_product = [
   {
@@ -29,6 +34,39 @@ let data_product = [
     new_price:100.00,
     old_price:150.00,
   },
+   {
+      id: 40,
+      name: "Boys Orange Colourblocked Hooded Sweatshirt",
+      category: "kid",
+      image: p40_img,
+      new_price: 85.0,
+      old_price: 120.5,
+    },
+        {
+      id: 41,
+      name: "Boys Orange Colourblocked Hooded Sweatshirt",
+      category: "kid",
+      image: p41_img,
+      new_price: 85.0,
+      old_price: 120.5,
+    },
+        {
+      id: 42,
+      name: "Boys Orange Colourblocked Hooded Sweatshirt",
+      category: "kid",
+      image: p42_img,
+      new_price: 85.0,
+      old_price: 120.5,
+    },
+            {
+          id: 43,
+          name: "Boys Orange Colourblocked Hooded Sweatshirt",
+          category: "kid",
+          image: p43_img,
+          new_price: 85.0,
+          old_price: 120.5,
+        },
+
 ];
 
 export default data_product;

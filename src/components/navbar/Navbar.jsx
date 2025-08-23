@@ -11,8 +11,8 @@ const Navbar = () => {
   const { getTotalCartItem } = useShopContext();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
-      <div className="container-fluid">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm" >
+      <div className="container-fluid" style={{backgroundColor:"#E3E6F3", boxShadow:" 0 5px 15px rgba(0, 0, 0, 0.06)",width:"100%"}}>
         {/* Logo */}
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="logo" style={{ width: "120px" }} />

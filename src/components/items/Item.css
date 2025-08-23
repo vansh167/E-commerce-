@@ -1,25 +1,63 @@
-.item{
-    width:100%;
+/* Container for all items */
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Creates space between products */
+  justify-content: center; /* Center items horizontally */
 }
-.item p{
-    margin:6px 0px;
+
+/* Individual product item card */
+.item {
+  text-align: center;
+  flex: 1 1 250px; /* Responsive width: min 250px, grow/shrink as needed */
+  max-width: 300px;
+  width: 270px;
+  padding: 10px 12px;
+  border: 1px solid #cce7d0;
+  /* margin-left: 40px; */
+  border-radius: 25px;
+  background-color: #eff4f4;
+  box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.2s ease;
+  cursor: pointer;
 }
-.item-prices{
-    display: flex;
-    gap:20px;
+
+/* Image wrapper with overflow handling */
+.item-image-container {
+  overflow: hidden;
+  border-radius: 10px;
 }
-.item-price-new{
-  color:#374151;
-  font-size: 18px;
-  font-weight: 600;
+
+/* Product image with hover zoom effect */
+.item-image-container img {
+  width: 100%;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
 }
-.item-price--old{
-    color:#8c8c8c;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: line-through;
+
+.item-image-container img:hover {
+  transform: scale(1.2);
 }
-.item:hover{
-    transform: scale(1.05);
-    transition: 0.6s;
+
+/* Product name */
+.item-name {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+/* Price section */
+.item-prices {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.new-price {
+  color: green;
+  font-weight: bold;
+}
+
+.old-price {
+  color: #888;
+  text-decoration: line-through;
 }

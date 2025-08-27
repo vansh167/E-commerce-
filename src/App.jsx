@@ -1,5 +1,5 @@
 import Navbar from './components/navbar/Navbar'
-import {BrowserRouter, Route, Routes} from 'react-router'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Shop from './pages/Shop'
 import Product from './pages/Product'
 import Cart from './pages/Cart'
@@ -11,13 +11,14 @@ import kid_banner from './components/Assets/banner_kids.png'
 import women_banner from './components/Assets/banner_women.png'
 import Checkout from './components/cartItems/CheckOut'
 import Payment from './components/cartItems/Payment'
+import Profile from './MyProfile/MyProfile'
+
 
 
 
 function App() {
   return (
     <>
-   
       <BrowserRouter>
         <Navbar/>
         <Routes>
@@ -29,9 +30,10 @@ function App() {
             <Route path=':productId' element={<Product/>}/>
           </Route>
           <Route path='/cart' element={<Cart/>}/>
-          <Route path="/checkout" element={<Checkout/>} />
-          <Route path="/payment" element={<Payment/>} />
+          <Route path='/checkout' element={<Checkout/>}/>
+          <Route path='/payment' element={<Payment/>}/>
           <Route path='/login' element={<LoginSignUp/>}/>
+          <Route path='/profile' element={<Profile/>}/>
         </Routes>
         <Footer/>
       </BrowserRouter>

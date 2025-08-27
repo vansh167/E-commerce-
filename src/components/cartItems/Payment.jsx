@@ -3,20 +3,13 @@ import { useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
-  FaLock,
-  FaShieldAlt,
-  FaThumbsUp,
-  FaCcVisa,
-  FaCcMastercard,
-  FaCcPaypal,
+  FaLock,  FaShieldAlt,  FaThumbsUp,  FaCcVisa,FaCcMastercard, FaCcPaypal,
 } from "react-icons/fa";
 import "./Payment.css";
 
 const PaymentPage = () => {
   const location = useLocation();
   const { address, totalAmount } = location.state || {};
-
-  // States
   const [paymentMethod, setPaymentMethod] = useState("");
   const [deliveryOption, setDeliveryOption] = useState("free");
   const [upiId, setUpiId] = useState("");
@@ -47,7 +40,9 @@ const PaymentPage = () => {
   // Coupon handling
   const handleApplyCoupon = () => {
     const code = couponCode.trim().toUpperCase();
+
     const coupons = { SAVE10: 10, SAVE20: 20, WELCOME5: 5 };
+    
     if (coupons[code]) {
       setDiscountPercent(coupons[code]);
       notifySuccess(`Coupon applied! You got ${coupons[code]}% off.`);

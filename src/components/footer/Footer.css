@@ -1,59 +1,193 @@
+/* ===== Footer Styling ===== */
 .footer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 7%;
-  align-items: center;
-  gap: 50px;
-}
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.footer-logo img {
-  height: 100px;
-}
-.footer-logo p {
-  color: #383838;
-  font-size: 46px;
-  font-weight: 700;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background: #f8f8f8;
+  padding: 40px 80px;
+  color: #222;
+  font-family: Arial, sans-serif;
 }
 
-.footer-links {
-  display: flex;
-  list-style: none;
-  gap: 50px;
-  color: #252525;
-  font-size: 20px;
+/* Columns */
+.footer .col {
+  flex: 1 1 220px;
+  margin-bottom: 20px;
 }
-.footer-links li {
+
+.footer h4 {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #000;
+}
+
+.footer p {
+  font-size: 14px;
+  line-height: 24px;
+  color: #555;
+}
+
+.footer a {
+  display: block;
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: teal;
+}
+
+/* Follow Us Section */
+.footer .follow {
+  margin-top: 20px;
+}
+
+.footer .follow h4 {
+  margin-bottom: 10px;
+}
+
+.footer .icon i {
+  font-size: 18px;
+  margin-right: 12px;
+  color: #555;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
+
+.footer .icon i:hover {
+  color: teal;
+}
+
+/* Install App + Payment */
+.footer .install .row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.footer .install img {
+  width: 155px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer .install img:hover {
+  transform: scale(1.05);
+}
+
+.footer .install p {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.footer .install img:last-child {
+  width: 155px;
+  border: none;
+}
+
+/* Custom Social Icons */
 .footer-social-icon {
   display: flex;
-  gap: 20px;
-}
-.footer-ions-container {
-  padding: 10px;
-  padding-bottom: 6px;
-  background: 1px solid #ebebeb;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.footer-copyright {
+.footer-icons-container {
+  width: 40px;
+  height: 35px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #ddd;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 30px;
-  width: 100%;
-  margin-bottom: 30px;
-  color: #1a1a1a;
-  font-size: 20px;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
-.footer-copyright hr {
-  width: 80%;
-  border-radius: 10px;
+
+.footer-icons-container:hover {
+  background: teal;
+  color: #fff;
+}
+
+/* Copyright */
+.footer .copyright {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.footer .copyright hr {
   border: none;
-  height: 3px;
-  background: #c7c7c7;
+  border-top: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.footer .copyright p {
+  font-size: 13px;
+  color: #666;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .footer {
+    padding: 30px 40px;
+  }
+  .footer .install img:last-child {
+    width: 200px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  .footer .col {
+    width: 100%;
+    margin-bottom: 25px;
+  }
+  .footer .install .row {
+    flex-direction:right;
+    align-items: flex-start;
+  }
+  .footer .install img {
+    width: 150px;
+    margin-top: -1px;
+  }
+  .footer .install img:last-child {
+    width: 150px;
+    margin-top: -1px;
+  }
+  .footer-social-icon {
+    justify-content: flex-start;
+  }
+  .footer .copyright {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 20px 15px;
+  }
+  .footer h4 {
+    font-size: 15px;
+  }
+  .footer p, 
+  .footer a {
+    font-size: 13px;
+  }
+  .footer .install img {
+    width: 120px;
+  }
+  .footer .install img:last-child {
+    width: 120px;
+  }
 }

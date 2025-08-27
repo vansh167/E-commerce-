@@ -1,41 +1,91 @@
-import React from 'react'
-import './Footer.css'
-import footer_logo from '../../assets/logo.png';
-import instagram_icon from '../Assets/instagram_icon.png';
-import pintester_icon from '../Assets/pintester_icon.png';
-import whatsapp_icon from '../Assets/whatsapp_icon.png';
+import React from "react";
+import "./Footer.css";
+
 const Footer = () => {
   return (
     <>
-      <div className="footer">
-        <div className="footer-logo">
-          <img src={footer_logo} alt="" />
+      {/* ===== Newsletter Section ===== */}
+      <section className="newsletter">
+        <div className="newsletter-text">
+          <h4>Sign Up For Newsletters</h4>
+          <p>
+            Get E-mail updates about our latest shop and{" "}
+            <span>special offers</span>.
+          </p>
         </div>
-        <ul className="footer-links">
-          <li>Company</li>
-          <li>Products</li>
-          <li>Offices</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-        <div className="footer-social-icon">
-          <div className="footer-icons-container">
-            <img src={instagram_icon} alt="" />
-          </div>
-          <div className="footer-icons-container">
-            <img src={pintester_icon} alt="" />
-          </div>
-          <div className="footer-icons-container">
-            <img src={whatsapp_icon} alt="" />
-          </div>
+        <div className="form">
+          <input type="text" placeholder="Your email address" />
+          <button>Sign Up</button>
         </div>
-        <div className="footer-copyright">
-          <hr />
-          <p>Copyrigtht @ 2023 - All Right Reserved. </p>
-        </div>
-      </div>
-    </>
-  )
-}
+      </section>
 
-export default Footer
+      {/* ===== Footer Section ===== */}
+      <footer className="footer">
+        {/* Column 1 */}
+        <div className="col">
+          <h4>Contact</h4>
+          <p>
+            <strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco
+          </p>
+          <p>
+            <strong>Phone:</strong> +01 2222 365 / (+91) 01 2345 6789
+          </p>
+          <p>
+            <strong>Hours:</strong> 10:00 - 18:00, Mon - Sat
+          </p>
+
+          <div className="follow">
+            <h4>Follow Us</h4>
+            <div className="icon">
+              <i className="fab fa-facebook-f"></i>
+              <i className="fab fa-twitter"></i>
+              <i className="fab fa-instagram"></i>
+              <i className="fab fa-pinterest-p"></i>
+              <i className="fab fa-youtube"></i>
+            </div>
+          </div>
+        </div>
+
+        {/* Column 2 */}
+        <div className="col">
+          <h4>About</h4>
+          <a href="#">About Us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
+        </div>
+
+        {/* Column 3 */}
+        <div className="col">
+          <h4>My Account</h4>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
+        </div>
+
+        {/* Column 4 */}
+        <div className="col install">
+          <h4>Install App</h4>
+          <p>From App Store or Google Play</p>
+          <div className="row">
+            <img src="/image/app.jpg" alt="App Store" />
+            <img src="/image/play.jpg" alt="Google Play" />
+          </div>
+          <p>Secured Payment Gateways</p>
+          <img src="/image/pay.png" alt="Payment Gateways" />
+        </div>
+
+        {/* Copyright */}
+        <div className="copyright">
+          <hr />
+          <p>© 2023 - All Rights Reserved.</p>
+        </div>
+      </footer>
+    </>
+  );
+};
+
+export default Footer;

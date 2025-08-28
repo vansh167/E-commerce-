@@ -18,7 +18,6 @@ import p46_img from "./product_46.jpg";
 import p47_img from "./product_47.jpg";
 import p48_img from "./product_48.jpg";
 import p49_img from "./product_49.jpg";
-import p50_img from "./product_50.jpg";
 
 let new_collections = [
   {
@@ -77,13 +76,7 @@ let new_collections = [
     new_price: 100.0,
     old_price: 150.0,
   },
-    {
-    id: 50,
-    name: "Boys Orange Colourblocked Hooded Sweatshirt",
-    image: p50_img,
-    new_price: 100.0,
-    old_price: 150.0,
-  },
+
     {
       id: 38,
       name: "Boys Orange Colourblocked Hooded Sweatshirt",
@@ -180,14 +173,7 @@ let new_collections = [
       new_price: 85.0,
       old_price: 120.5,
     },
-            {
-      id: 50,
-      name: "Boys Orange Colourblocked Hooded Sweatshirt",
-      category: "kid",
-      image: p50_img,
-      new_price: 85.0,
-      old_price: 120.5,
-    },
+
 ];
 
 export default new_collections;

@@ -4,22 +4,6 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <>
-      {/* ===== Newsletter Section ===== */}
-      <section className="newsletter">
-        <div className="newsletter-text">
-          <h4>Sign Up For Newsletters</h4>
-          <p>
-            Get E-mail updates about our latest shop and{" "}
-            <span>special offers</span>.
-          </p>
-        </div>
-        <div className="form">
-          <input type="text" placeholder="Your email address" />
-          <button>Sign Up</button>
-        </div>
-      </section>
-
-      {/* ===== Footer Section ===== */}
       <footer className="footer">
         {/* Column 1 */}
         <div className="col">

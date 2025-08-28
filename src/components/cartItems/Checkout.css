@@ -30,8 +30,12 @@
 /* Layout */
 .checkout-sections {
   display: flex;
-  gap: 40px;
+  /* gap: 40px; */
+  background-image: url(/image/address.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
   flex-wrap: wrap;
+  border-radius: 16px;
 }
 
 .checkout-left-section,
@@ -42,11 +46,12 @@
 
 /* Add Address Button */
 .add-address-btn {
-  width: 60%;
+  width: 100%;
   padding: 16px;
-  border: 2px dashed #ff6f61;
+  border: 2px dashed #f0b8b3;
   background: #fff9f8;
-  border-radius: 12px;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
   font-size: 16px;
   color: #ff6f61;
   cursor: pointer;
@@ -70,7 +75,8 @@
   border: 1px solid #e0e0e0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   animation: fadeIn 0.4s ease;
-  width: 75%;
+  width: 100%;
+  height: auto;
 }
 
 .address-form input {
@@ -144,9 +150,13 @@
 
 .no-address-text {
   text-align: center;
-  color: #888;
+  color: #ffffff;
   font-style: italic;
-  padding: 20px;
+  padding: 18px;
+  margin-bottom:-14px;
+  background-color:rgb(184, 208, 252);
+  border-top-right-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
 
 /* Order Summary */

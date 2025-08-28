@@ -10,7 +10,6 @@ const Checkout = () => {
 
   const [formVisible, setFormVisible] = useState(false);
   const [address, setAddress] = useState(null);
-
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -35,6 +34,7 @@ const Checkout = () => {
       return;
     }
     navigate("/payment", { state: { address, totalAmount } });
+   
   };
 
   return (

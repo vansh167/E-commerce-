@@ -1,65 +1,121 @@
 const port = 4000;
 const express = require("express");
+const app = express();
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
-const fs = require("fs");
-
-const app = express();
+const { type } = require("os");
 
 app.use(express.json());
 app.use(cors());
 
-// ✅ Create folder if it doesn't exist
-const uploadDir = path.join(__dirname, 'upload', 'image');
-if (!fs.existsSync(uploadDir)) {
-  fs.mkdirSync(uploadDir, { recursive: true });
-}
+// Database Connection with Mongoose//
+mongoose.connect("mongodb+srv://vanshdhiman:07070707070707@cluster0.nqlmou4.mongodb.net/swiftCart")
 
-// ✅ Connect to MongoDB
-mongoose
-  .connect("mongodb+srv://kartikdhiman046_db_user:07070707070707@cluster0.skuh7x3.mongodb.net/", {
-    // Remove deprecated options
-  })
-  .then(() => console.log("✅ Connected to MongoDB"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+//API Creation //
+app.get("/",(req,res)=> {
+  res.send("Express App is Running")
+})
 
-// ✅ Root Route
-app.get("/", (req, res) => {
-  res.send("✅ Express App is Running");
-});
-
-// ✅ Multer Storage Engine
+//Creating API For detailing Products//
+app.post('/removeproduct',async(req,res)=>{
+  await Product.findOneAndDelete({id:req.body.id});
+  console.log("Removed");
+  res.json({
+    success:true,
+    name:req.body.name
+  });
+})
+// Creating API //
+app.get('/allproducts',async(req,res)=>{
+  let products = await Product.find({});
+  console.log("All Products Fetched");
+  res.send(products);
+})
+app.listen(port,(error)=> {
+  if (!error) {
+    console.log("server Running on port "+port)
+  }
+  else
+    {
+    
+  }
+})
+// Image Storage Engine//
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './upload/image');
-  },
-  filename: function (req, file, cb) {
+  destination: './upload/image',
+  filename: (req, file, cb) => {
     cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
-  },
+  }
 });
 
 const upload = multer({ storage: storage });
-
-// ✅ Serve uploaded files statically
-app.use('/image', express.static('upload/image'));
-
-// ✅ Upload Route
-app.post('/upload', upload.single('product'), (req, res) => {
-  console.log('📥 File received:', req.file);
-  if (!req.file) {
-    return res.status(400).send('No file uploaded.');
-  }
-  res.send('Upload successful');
+// creating Upload Endpoint for images
+app.use('/image', express.static('./upload/image'));
+app.post("/upload", upload.single("product"), (req, res) => {
+     res.json({
+      success:1,
+      image_url:`http://localhost:${port}/image/${req.file.filename}`
+     })
 });
-
-// ✅ Start the server
-app.listen(port, (error) => {
-  if (!error) {
-    console.log(`✅ Server running on port ${port}`);
-  } else {
-    console.log("❌ Error: " + error);
-  }
-});
+//Schema for Creating Products//
+const Product = mongoose.model("Priduct",{
+   id:{
+    type: Number,
+    required: true,
+   },
+   name:{
+    type:String,
+    required:true
+  },
+  category:{
+    type:String,
+    required:true
+  },
+  new_price:{
+    type:Number,
+    required:true,
+  },
+  old_price:{
+    type:Number,
+    required:true
+  },
+  date:{
+    type:Date,
+    default:Date.now,
+  },
+  available:{
+    type:Boolean,
+    default:true,
+  },
+  })
+  app.post('/addproduct',async(req,res)=>{
+    let products = await Product.findOne({});
+    let id;
+    if(products.length>0){
+      let last_product_array = products.slice(-1);
+      let last_product = last_product_array[0];
+      id = last_product.id + 1;
+    }else{
+      id = 1;
+    }
+    const  product = new Product({
+      id:req.body.id,
+      name:req.body.name,
+      image:req.body.image,
+      category:req.body.category,
+      new_price:req.body.new_price,
+      old_price:req.body.old_price,
+      date:req.body.date,
+      available:req.body.available
+    });
+    console.log(product);
+    await product.save();
+    console.log("Saved")
+    res.json({
+      success:true,
+      name:req.body.name,
+    })
+  })

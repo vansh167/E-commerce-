@@ -10,11 +10,20 @@ const ListProduct = () => {
       .then(res => res.json())
       .then((data) => { setAllProducts(data) })
   }
-  fetchInfo();
 
   useEffect(() => {
     fetchInfo();
   }, []) // ✅ Add empty dependency array to avoid infinite fetch
+
+  // Add handleRemove function
+  const handleRemove = async (id) => {
+    await fetch('http://localhost:4000/removeproduct', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id }),
+    });
+    setAllProducts(allproducts.filter(product => product.id !== id));
+  }
 
   return (
     <div className="list-product">
@@ -33,10 +42,16 @@ const ListProduct = () => {
           return <div key={index} className='listproduct-format'>
             <img src={product.image} alt="" className='listproductproduct-image' />
             <p>{product.name}</p>
-            <p>${product.oldPrice}</p>
-            <p>${product.newPrice}</p>
+            <p>${product.old_price}</p>
+            <p>${product.new_price}</p>
             <p>{product.category}</p>
-            <img className='listproduct-remove-icon' src={cross_icon} alt="Remove" /> {/* ✅ Use correct variable */}
+            <img
+              className='listproduct-remove-icon'
+              src={cross_icon}
+              alt="Remove"
+              style={{ cursor: 'pointer' }}
+              onClick={() => handleRemove(product.id)}
+            /> 
           </div>
         })}
       </div>

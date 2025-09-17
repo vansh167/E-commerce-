@@ -24,7 +24,10 @@ const AddProduct = () => {
     console.log('Sending product:', productDetails);
     let responseData;
     let product = { ...productDetails };
-
+    if(!image){
+      alert("Please select an image before uploading")
+      return;
+    }
     // Convert price strings to numbers
     product.new_price = Number(product.new_price);
     product.old_price = Number(product.old_price);

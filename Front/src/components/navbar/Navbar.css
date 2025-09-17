@@ -93,11 +93,14 @@ body {
   font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 50%;
-  margin-left: -12px;
+  margin-left: 0px;
   margin-top: -12px;
   position: relative;
+  
 }
-
+.align-items-center{
+  margin-right: 20px;
+}
 /* --------------------------- */
 /* Responsive Mobile / Tablet */
 /* --------------------------- */
@@ -161,9 +164,17 @@ body {
   .nav-login-cart button {
     padding: 4px 10px;
     font-size: 12px;
+   
   }
 
   .nav-login-cart img {
     height: 20px;
   }
+}
+.btn-primary{
+  background-color: #E3E6F3;
+  color: black;
+  font-weight: 600;
+  margin-left: -10px;
+  border-color: #333;
 }

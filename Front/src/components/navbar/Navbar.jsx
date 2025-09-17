@@ -50,9 +50,12 @@ const Navbar = () => {
 
           {/* Right Section (Login + Cart) */}
           <div className="d-flex align-items-center gap-2">
-            <Link to="/login">
-              <button className="btn btn-primary">Login</button>
-            </Link>
+          {localStorage.getItem('auth-token')
+          ?<button  className="btn btn-primary" onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Logout</button>
+        :<Link to="/login"> <button className="btn btn-primary">Login</button> </Link> 
+        }
+            
+             
             <Link to="/cart" className="position-relative">
               <img src={cart_icon} alt="cart" style={{ height: "25px" }} />
               <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
